@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    @apply bg-white text-black;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Unbounded', cursive;
+  }
+}
+.shadow-brutal {
+  box-shadow: 2px 2px 0px #000000;
+}
+
+.shadow-brutal-white {
+  box-shadow: 2px 2px 0px #ffffff;
+}
+
+@media (min-width: 640px) {
+  .shadow-brutal {
+    box-shadow: 4px 4px 0px #000000;
+  }
+  
+  .shadow-brutal-white {
+    box-shadow: 4px 4px 0px #ffffff;
+  }
+}
+
+@keyframes smooth-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+.animate-smooth-bounce {
+  animation: smooth-bounce 2s infinite ease-in-out;
+}
+.neo-brutal-shadow {
+  @apply border-4 border-black;
+  box-shadow: 8px 8px 0 0 #000000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.neo-brutal-shadow:hover {
+  box-shadow: 12px 12px 0 0 #000000;
+}
+
+.neo-brutal-button {
+  @apply border-4 border-black transition-all duration-300;
+  box-shadow: 4px 4px 0 0 #000000;
+}
+
+.neo-brutal-button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 #000000;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-white border-l-2 border-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-black border-2 border-white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-yellow-400;
+}
