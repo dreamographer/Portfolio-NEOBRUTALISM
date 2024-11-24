@@ -16,6 +16,24 @@
     font-family: 'Unbounded', cursive;
   }
 }
+
+* {
+  cursor: none !important;
+}
+
+.cursor-svg {
+  filter: drop-shadow(2px 2px 0px black);
+  transform: translate(-4px, -4px);
+}
+
+/* Interactive elements */
+a:hover ~ div:first-of-type .cursor-svg,
+button:hover ~ div:first-of-type .cursor-svg,
+[role="button"]:hover ~ div:first-of-type .cursor-svg {
+  transform: translate(-4px, -4px) scale(1.2);
+  transition: transform 0.2s ease;
+}
+
 .shadow-brutal {
   box-shadow: 2px 2px 0px #000000;
 }
@@ -81,4 +99,80 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-yellow-400;
+}
+
+/* Cursor styles */
+* {
+  cursor: none !important;
+}
+
+/* Interactive elements cursor effect */
+a:hover ~ div:first-of-type .rounded-full,
+button:hover ~ div:first-of-type .rounded-full,
+[role="button"]:hover ~ div:first-of-type .rounded-full {
+  @apply scale-75 bg-yellow-400;
+  transform-origin: center;
+}
+
+/* Optional: Add rotation on hover */
+a:hover ~ div:first-of-type,
+button:hover ~ div:first-of-type,
+[role="button"]:hover ~ div:first-of-type {
+  @apply rotate-45;
+  transition: transform 0.3s ease;
+}
+
+/* Following dot hover effect */
+a:hover ~ div:nth-of-type(2) div,
+button:hover ~ div:nth-of-type(2) div,
+[role="button"]:hover ~ div:nth-of-type(2) div {
+  @apply bg-yellow-400 scale-150;
+  transition: all 0.2s ease;
+}
+
+.cursor-follower-0 { transform: scale(0.8); }
+.cursor-follower-1 { transform: scale(0.6); }
+.cursor-follower-2 { transform: scale(0.4); }
+.cursor-follower-3 { transform: scale(0.2); }
+
+/* Interactive elements */
+a:hover ~ div:not(:first-of-type) div,
+button:hover ~ div:not(:first-of-type) div,
+[role="button"]:hover ~ div:not(:first-of-type) div {
+  @apply bg-yellow-400;
+  transform: scale(1.5) rotate(45deg);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Add rotation animation for extra flair */
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+[role="button"]:hover ~ div:not(:first-of-type) div {
+  animation: slow-spin 4s linear infinite;
+}
+
+/* Only apply cursor: none on non-mobile devices */
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* Rest of your cursor styles */
+.cursor-svg {
+  filter: drop-shadow(2px 2px 0px black);
+  transform: translate(-4px, -4px);
 }

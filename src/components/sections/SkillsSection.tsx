@@ -68,7 +68,7 @@ export default function SkillsSection({ skillsData }: SkillsSectionProps) {
               style={{
                 position: "absolute",
                 width: "100%",
-                height: "200px",
+                minHeight: "200px",
                 top: position * 8,
                 zIndex: skillsData.length - position,
                 filter: `brightness(${1 - position * 0.15})`,

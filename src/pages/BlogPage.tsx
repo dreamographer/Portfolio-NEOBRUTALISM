@@ -1,28 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
+import { posts } from "../data";
 
-const allPosts = [
-  // Include your existing posts plus more
-  {
-    id: '1',
-    title: "The Future of Web Development",
-    date: "2024-03-01",
-    excerpt: "Exploring upcoming trends in web development and what they mean for developers.",
-    image: "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&q=80&w=800&h=400",
-  },
-  {
-    id: '2',
-    title: "Mastering React Performance",
-    date: "2024-02-15",
-    excerpt: "Tips and tricks for optimizing your React applications for better performance.",
-    image: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800&h=400",
-  },
-  // Add more blog posts here
-];
+
 
 export default function BlogPage() {
-  const featuredPost = allPosts[0]; // Use the first post as featured
-  const remainingPosts = allPosts.slice(1);
+  const featuredPost = posts.find(post => post.featured) || posts[0]; // Find featured post or fallback to first post
+  const remainingPosts = posts.filter(post => post !== featuredPost);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-yellow-50 to-white p-8 py-24">

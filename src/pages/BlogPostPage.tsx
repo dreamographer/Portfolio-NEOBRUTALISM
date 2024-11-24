@@ -1,25 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-const allPosts = [
-  {
-    id: "1",
-    title: "The Future of Web Development",
-    date: "2024-03-01",
-    excerpt:
-      "Exploring upcoming trends in web development and what they mean for developers.",
-    image:
-      "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&q=80&w=800&h=400",
-  },
-  {
-    id: "2",
-    title: "Mastering React Performance",
-    date: "2024-02-15",
-    excerpt:
-      "Tips and tricks for optimizing your React applications for better performance.",
-    image:
-      "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&q=80&w=800&h=400",
-  },
-];
+import { posts } from '../data';
 
 interface ShareConfig {
   platform: string;
@@ -62,7 +43,7 @@ const SHARE_CONFIGS: ShareConfig[] = [
 
 export default function BlogPostPage() {
   const { id } = useParams();
-  const post = allPosts.find((post) => post.id === id);
+  const post = posts.find((post) => post.id === id);
   
   const handleShare = async (platform: string) => {
     const postUrl = window.location.href;
@@ -158,29 +139,21 @@ export default function BlogPostPage() {
             Back to Digital Canvas
           </Link>
 
-          {/* Article Content - Updated spacing */}
+          {/* Updated Article Content */}
           <article className="prose prose-lg max-w-none px-0 sm:px-4">
             <p className="text-lg sm:text-xl leading-relaxed text-gray-700">
               {post.excerpt}
             </p>
             
-            {/* Example of additional content - you can add more content here */}
             <div className="mt-6 sm:mt-8 space-y-4 sm:space-y-6">
-              <p className="text-gray-700">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod 
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              </p>
-              
-              <blockquote className="border-l-4 border-yellow-400 pl-4 italic text-gray-700">
-                "The best way to predict the future is to invent it."
-              </blockquote>
-
-              <p className="text-gray-700">
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
+              {post.content && post.content.map((section: any, index: number) => (
+                <div key={index}>
+                  {section.title && (
+                    <h2 className="text-2xl font-bold mt-8 mb-4">{section.title}</h2>
+                  )}
+                  <p className="text-gray-700">{section.text}</p>
+                </div>
+              ))}
             </div>
           </article>
 
