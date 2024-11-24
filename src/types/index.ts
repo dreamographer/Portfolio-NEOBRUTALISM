@@ -1,15 +1,18 @@
 export interface Project {
   id: string;
   title: string;
+  type?: "personal" | "professional";
+  company?: string;
+  subTitle: string;
   description: string;
   image: string;
   tags: string[];
-  featured: boolean;
+  featured?: boolean;
+  linkedin?: string;
   github?: string;
   live?: string;
-  features?: string[];
+  features: string[];
 }
-
 export interface BlogPost {
   id: string;
   title: string;
@@ -33,4 +36,4 @@ export interface AboutInfo {
     backend: string[];
     tools: string[];
   };
-} 
+}

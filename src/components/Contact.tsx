@@ -60,7 +60,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen bg-white p-4 sm:p-8 py-16 sm:py-24"
+      className="min-h-screen bg-yellow-50 p-4 sm:p-8 py-16 sm:py-24"
     >
       <Toaster
         position="top-right"

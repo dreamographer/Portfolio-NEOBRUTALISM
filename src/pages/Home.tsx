@@ -1,4 +1,4 @@
-import Hero from '../components/Hero';
+import Hero from '../components/sections/HeroSection';
 import BentoGrid from '../components/BentoGrid';
 import Contact from '../components/Contact';
 

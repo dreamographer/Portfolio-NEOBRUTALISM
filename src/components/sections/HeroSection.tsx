@@ -55,8 +55,9 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            I craft stunning websites by combining creative design with cutting-edge AI technology. 
-            Let's build something extraordinary together.
+            I craft stunning websites by combining creative design using
+            cutting-edge AI technologies. Let's build something extraordinary
+            together.
           </motion.p>
 
           {/* Social Links */}
@@ -67,7 +68,7 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
           >
             <a
-              href="https://github.com/ashwin-kv"
+              href="https://github.com/dreamographer"
               className="bg-black text-white p-2 sm:p-3 hover:bg-white hover:text-black border-2 border-black transition-all duration-300 shadow-brutal"
               target="_blank"
               rel="noopener noreferrer"
@@ -83,7 +84,7 @@ export default function Hero() {
               <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
             </a>
             <a
-              href="https://instagram.com/ashwin_kv_"
+              href="https://instagram.com/dreamographer_"
               className="bg-black text-white p-2 sm:p-3 hover:bg-white hover:text-black border-2 border-black transition-all duration-300 shadow-brutal"
               target="_blank"
               rel="noopener noreferrer"
@@ -108,7 +109,7 @@ export default function Hero() {
             {/* Main image container */}
             <div className="relative border-2 border-black bg-white">
               <img
-                src="src/public/1000656484-removebg~2.png"
+                src="https://i.ibb.co/W3bhvG1/1000656484-removebg-2.png"
                 alt="Ashwin K V"
                 className="w-full aspect-square object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
