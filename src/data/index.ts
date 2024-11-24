@@ -4,7 +4,7 @@ export const skills = [
     "title": "Languages",
     "skills": [
       {
-        "name": "Java"
+        "name": "Javascript"
       },
       {
         "name": "TypeScript"
@@ -375,11 +375,5 @@ export const education = [
     "degree": "Higher Secondary",
     "period": "2018 - 2020",
     "description": "• Completed Higher Secondary with 80.83%"
-  },
-  {
-    "school": "SRSSVM",
-    "degree": "SSLC",
-    "period": "2017 - 2018",
-    "description": "noting much"
   }
 ];
