@@ -62,7 +62,7 @@ function App() {
             </div>
           </>
         )}
-        {[...Array(4)].map((_, index) => (
+        {/* {[...Array(4)].map((_, index) => (
           <div
             key={index}
             className={`fixed pointer-events-none z-40 ${
@@ -91,7 +91,7 @@ function App() {
               }}
             />
           </div>
-        ))}
+        ))} */}
         <AnimatePresence>
           {isLoading ? (
             <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />

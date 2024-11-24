@@ -11,14 +11,21 @@ import {
 const AdminPage = () => {
   const [activeSection, setActiveSection] = useState("skills");
   const [jsonData, setJsonData] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const GITHUB_TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
+  const REPO_OWNER = "dreamographer";
+  const REPO_NAME = "Portfolio-NEOBRUTALISM";
+  const BRANCH = "main";
+  const FILE_PATH = "src/data/index.ts";
 
   const sections = {
-    skillsData: skillsData,
+    skills: skillsData,
     projects: projects,
     posts: posts,
-    galleryImages: galleryImages,
-    experienceData: experienceData,
-    educationData: educationData,
+    gallery: galleryImages,
+    experience: experienceData,
+    education: educationData,
   };
 
   const handleEdit = (section: keyof typeof sections) => {
@@ -27,49 +34,81 @@ const AdminPage = () => {
   };
 
   const generateFileContent = () => {
-    // Start with existing exports
     const allExports = Object.entries(sections).map(([key, value]) => {
-      // If this is the section we're editing, use the new data
       const data = key === activeSection ? JSON.parse(jsonData) : value;
       return `export const ${key} = ${JSON.stringify(data, null, 2)};`;
     });
-
-    // Join all exports with newlines between them
     return allExports.join("\n\n");
   };
 
   const handleSave = async () => {
+    if (!GITHUB_TOKEN) {
+      alert("GitHub token not configured!");
+      return;
+    }
+
+    setLoading(true);
     try {
-      // Validate JSON before proceeding
-      JSON.parse(jsonData);
+      const getCurrentFile = await fetch(
+        `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}?ref=${BRANCH}`,
+        {
+          headers: {
+            Authorization: `Bearer ${GITHUB_TOKEN}`,
+            Accept: "application/vnd.github.v3+json",
+          },
+        }
+      );
 
-      // Generate the full file content
-      const fileContent = generateFileContent();
-
-      // Send the content to our local development server
-      const response = await fetch("/api/update-data", {
-        method: "POST",
-        body: fileContent,
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to save file");
+      if (!getCurrentFile.ok) {
+        throw new Error("Failed to fetch current file");
       }
 
-      alert(
-        "File updated successfully! The page will refresh to show changes."
+      const currentFile = await getCurrentFile.json();
+
+      const content = btoa(unescape(encodeURIComponent(generateFileContent())));
+
+      const response = await fetch(
+        `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${FILE_PATH}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${GITHUB_TOKEN}`,
+            "Content-Type": "application/json",
+            Accept: "application/vnd.github.v3+json",
+          },
+          body: JSON.stringify({
+            message: `Update ${activeSection} data via admin panel`,
+            content: content,
+            sha: currentFile.sha,
+            branch: BRANCH,
+          }),
+        }
       );
-      window.location.reload();
-    } catch (error: any) {
-      alert("Error saving file: " + error.message);
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Failed to update file");
+      }
+
+      alert("Changes saved! The site will update once Vercel completes the deployment.");
+    } catch (error) {
       console.error("Error:", error);
+      alert("Error saving changes: " + (error as Error).message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <h1 className="text-4xl font-bold mb-6">Admin Dashboard</h1>
-
+      
+      {!GITHUB_TOKEN && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+          Warning: GitHub token not configured. Updates will not work.
+        </div>
+      )}
+      
       <div className="flex flex-wrap gap-4 mb-6">
         {Object.keys(sections).map((section) => (
           <button
@@ -97,9 +136,12 @@ const AdminPage = () => {
 
       <button
         onClick={handleSave}
-        className="px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600"
+        disabled={loading || !GITHUB_TOKEN}
+        className={`px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600 ${
+          (loading || !GITHUB_TOKEN) ? "opacity-50 cursor-not-allowed" : ""
+        }`}
       >
-        Save Changes
+        {loading ? "Saving..." : "Save Changes"}
       </button>
     </div>
   );
