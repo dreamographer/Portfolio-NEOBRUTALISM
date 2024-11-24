@@ -10,6 +10,7 @@ import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import GalleryPage from "./pages/GalleryPage";
 import AdminPage from "./pages/AdminPage";
+import { Toaster } from "sonner";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,6 +36,21 @@ function App() {
         className={`relative ${!isMobile ? "cursor-none" : ""}`}
         onMouseMove={handleMouseMove}
       >
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: "#000",
+              color: "#fff",
+              border: "2px solid #000",
+              borderRadius: "0px",
+              padding: "16px",
+              fontSize: "14px",
+              fontWeight: "bold",
+            },
+            duration: 3000,
+          }}
+        />
         {!isMobile && (
           <>
             <div

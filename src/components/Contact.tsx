@@ -114,7 +114,7 @@ export default function Contact() {
                   <Linkedin className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
                 <a
-                  href="https://github.com/ashwin-kv"
+                  href="https://github.com/dreamographer"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-yellow-400 p-3 sm:p-4 hover:bg-black hover:text-white transition-colors"
@@ -122,7 +122,7 @@ export default function Contact() {
                   <Github className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
                 <a
-                  href="https://instagram.com/ashwin_kv_"
+                  href="https://instagram.com/dreamographer__"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-yellow-400 p-3 sm:p-4 hover:bg-black hover:text-white transition-colors"
@@ -130,7 +130,7 @@ export default function Contact() {
                   <Instagram className="w-5 h-5 sm:w-6 sm:h-6" />
                 </a>
                 <a
-                  href="https://leetcode.com/ashwin_kv"
+                  href="https://leetcode.com/u/Ashwin_K_V/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-yellow-400 p-3 sm:p-4 hover:bg-black hover:text-white transition-colors"
@@ -186,6 +186,10 @@ export default function Contact() {
               SEND MESSAGE
             </button>
           </form>
+        </div>
+
+        <div className="text-center mt-12 text-sm text-gray-500">
+          Handcrafted by Me with AI ✨
         </div>
       </motion.div>
     </section>
