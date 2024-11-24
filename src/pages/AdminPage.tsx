@@ -1,11 +1,11 @@
 import { useState } from "react";
 import {
-  skillsData,
+  skills,
   projects,
   posts,
-  galleryImages,
-  experienceData,
-  educationData,
+  gallery,
+  experience,
+  education,
 } from "../data";
 
 const AdminPage = () => {
@@ -20,12 +20,12 @@ const AdminPage = () => {
   const FILE_PATH = "src/data/index.ts";
 
   const sections = {
-    skills: skillsData,
+    skills: skills,
     projects: projects,
     posts: posts,
-    gallery: galleryImages,
-    experience: experienceData,
-    education: educationData,
+    gallery: gallery,
+    experience: experience,
+    education: education,
   };
 
   const handleEdit = (section: keyof typeof sections) => {
@@ -90,7 +90,9 @@ const AdminPage = () => {
         throw new Error(error.message || "Failed to update file");
       }
 
-      alert("Changes saved! The site will update once Vercel completes the deployment.");
+      alert(
+        "Changes saved! The site will update once Vercel completes the deployment."
+      );
     } catch (error) {
       console.error("Error:", error);
       alert("Error saving changes: " + (error as Error).message);
@@ -102,13 +104,13 @@ const AdminPage = () => {
   return (
     <div className="p-6 max-w-7xl mx-auto">
       <h1 className="text-4xl font-bold mb-6">Admin Dashboard</h1>
-      
+
       {!GITHUB_TOKEN && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           Warning: GitHub token not configured. Updates will not work.
         </div>
       )}
-      
+
       <div className="flex flex-wrap gap-4 mb-6">
         {Object.keys(sections).map((section) => (
           <button
@@ -138,7 +140,7 @@ const AdminPage = () => {
         onClick={handleSave}
         disabled={loading || !GITHUB_TOKEN}
         className={`px-6 py-3 bg-green-500 text-white rounded hover:bg-green-600 ${
-          (loading || !GITHUB_TOKEN) ? "opacity-50 cursor-not-allowed" : ""
+          loading || !GITHUB_TOKEN ? "opacity-50 cursor-not-allowed" : ""
         }`}
       >
         {loading ? "Saving..." : "Save Changes"}

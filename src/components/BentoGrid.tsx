@@ -5,7 +5,14 @@ import BlogSection from "./sections/BlogSection";
 import GallerySection from "./sections/GallerySection";
 import ExperienceSection from "./sections/ExperienceSection";
 import EducationSection from "./sections/EducationSection";
-import { galleryImages, posts, projects, skillsData, experienceData, educationData } from "../data";
+import {
+  gallery,
+  posts,
+  projects,
+  skills,
+  experience,
+  education,
+} from "../data";
 
 export default function BentoGrid() {
   return (
@@ -17,7 +24,7 @@ export default function BentoGrid() {
             <AboutSection />
           </div>
           <div className="col-span-1">
-            <SkillsSection skillsData={skillsData} />
+            <SkillsSection skillsData={skills} />
           </div>
 
           {/* Projects section - full width */}
@@ -27,10 +34,10 @@ export default function BentoGrid() {
 
           {/* Experience + Education section */}
           <div className="col-span-1 md:col-span-2">
-            <ExperienceSection experiences={experienceData} />
+            <ExperienceSection experiences={experience} />
           </div>
           <div className="col-span-1">
-            <EducationSection education={educationData} />
+            <EducationSection education={education} />
           </div>
 
           {/* Blog section - full width */}
@@ -40,7 +47,7 @@ export default function BentoGrid() {
 
           {/* Gallery section - full width */}
           <div className="col-span-1 md:col-span-2 lg:col-span-3">
-            <GallerySection images={galleryImages} />
+            <GallerySection images={gallery} />
           </div>
         </div>
       </div>
