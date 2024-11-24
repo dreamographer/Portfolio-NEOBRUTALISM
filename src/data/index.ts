@@ -327,21 +327,6 @@ export const posts = [
 
 export const gallery = [
   {
-    "id": "1",
-    "url": "https://picsum.photos/800/800?random=6",
-    "title": "AI Generated Art"
-  },
-  {
-    "id": "2",
-    "url": "https://picsum.photos/800/800?random=7",
-    "title": "Neural Networks"
-  },
-  {
-    "id": "3",
-    "url": "https://picsum.photos/800/800?random=8",
-    "title": "AI Development"
-  },
-  {
     "id": "4",
     "url": "https://picsum.photos/800/800?random=9",
     "title": "Machine Learning"
