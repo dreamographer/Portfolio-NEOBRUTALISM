@@ -1,10 +1,10 @@
-export const skillsData = [
+export const skills = [
   {
     "id": 1,
     "title": "Languages",
     "skills": [
       {
-        "name": "Javascript"
+        "name": "Java"
       },
       {
         "name": "TypeScript"
@@ -325,7 +325,7 @@ export const posts = [
   }
 ];
 
-export const galleryImages = [
+export const gallery = [
   {
     "id": "1",
     "url": "https://picsum.photos/800/800?random=6",
@@ -348,7 +348,7 @@ export const galleryImages = [
   }
 ];
 
-export const experienceData = [
+export const experience = [
   {
     "company": "Finanshels",
     "position": "Full Stack Developer",
@@ -363,7 +363,7 @@ export const experienceData = [
   }
 ];
 
-export const educationData = [
+export const education = [
   {
     "school": "St Aloysius College",
     "degree": "Bachelor of Computer Applications",
