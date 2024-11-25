@@ -918,7 +918,7 @@ const AdminPage = () => {
     <div className="min-h-screen bg-gray-50">
       <div className="p-2 sm:p-6 max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
-          <h1 className="text-3xl sm:text-4xl font-bold">Admin Dashboard</h1>
+          <h1 className="text-3xl sm:text-4xl font-bold">Personal Dashboard</h1>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="flex items-center gap-2">
               <span
