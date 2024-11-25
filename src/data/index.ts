@@ -328,7 +328,7 @@ export const posts = [
 export const gallery = [
   {
     "id": "4",
-    "url": "https://www.linkedin.com/in/ashwin-kv?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    "url": "https://i.ibb.co/0fKmZ1h/RKB-4208.jpg",
     "title": "Graduation"
   }
 ];
