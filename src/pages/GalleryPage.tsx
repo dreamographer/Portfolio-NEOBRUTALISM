@@ -1,45 +1,18 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-
+import { gallery } from "../data";
 const GalleryPage = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 
-  const images = [
-    {
-      url: "https://picsum.photos/800/800?random=1",
-      title: "Creative Design"
-    },
-    {
-      url: "https://picsum.photos/800/800?random=2",
-      title: "Digital Art"
-    },
-    {
-      url: "https://picsum.photos/800/800?random=3",
-      title: "Web Development"
-    },
-    {
-      url: "https://picsum.photos/800/800?random=4",
-      title: "UI/UX Design"
-    },
-    {
-      url: "https://picsum.photos/800/800?random=5",
-      title: "Mobile App"
-    },
-    {
-      url: "https://picsum.photos/800/800?random=6",
-      title: "Brand Identity"
-    }
-  ];
-
   const nextImage = () => {
     setSelectedImageIndex(prev => 
-      prev === null ? 0 : (prev + 1) % images.length
+      prev === null ? 0 : (prev + 1) % gallery.length
     );
   };
 
   const previousImage = () => {
-    setSelectedImageIndex(prev => 
-      prev === null ? 0 : (prev - 1 + images.length) % images.length
+    setSelectedImageIndex((prev) =>
+      prev === null ? 0 : (prev - 1 + gallery.length) % gallery.length
     );
   };
 
@@ -65,7 +38,7 @@ const GalleryPage = () => {
         </h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {images.map((image, index) => (
+          {gallery.map((image, index) => (
             <motion.div
               key={index}
               whileHover={{ scale: 1.02 }}
@@ -103,8 +76,8 @@ const GalleryPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                src={images[selectedImageIndex].url}
-                alt={images[selectedImageIndex].title}
+                src={gallery[selectedImageIndex].url}
+                alt={gallery[selectedImageIndex].title}
                 className="w-full h-auto max-h-[80vh] object-contain"
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
@@ -136,7 +109,7 @@ const GalleryPage = () => {
               {/* Image Title */}
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
                 <h3 className="font-bold text-lg">
-                  {images[selectedImageIndex].title}
+                  {gallery[selectedImageIndex].title}
                 </h3>
               </div>
             </div>
