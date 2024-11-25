@@ -328,8 +328,8 @@ export const posts = [
 export const gallery = [
   {
     "id": "4",
-    "url": "https://picsum.photos/800/800?random=9",
-    "title": "Machine Learning"
+    "url": "https://i.ibb.co/0fKmZ1h/RKB-4208.jpg",
+    "title": "Graduation"
   }
 ];
 
