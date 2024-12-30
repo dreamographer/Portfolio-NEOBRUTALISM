@@ -345,6 +345,12 @@ export const experience = [
     "position": "MERN Stack Intern",
     "period": "Aug 2023 - Jul 2024",
     "description": "• Mastered full-stack development using the MERN (MongoDB, Express.js, React.js, Node.js) stack • Developed ZenSync, a real-time collaboration platform with features like document editing and video conferencing • Built OFFIQ, an e-commerce platform for office equipment with comprehensive admin features • Created various mini-projects to strengthen technical skills and practical knowledge"
+  },
+  {
+    "company": "ELT Global",
+    "position": "Front end engineer",
+    "period": "Aug 2024 - Present",
+    "description": "Developing frontend for the cutting edge edutech platform from ELT global."
   }
 ];
 
