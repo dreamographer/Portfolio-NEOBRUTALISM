@@ -329,7 +329,7 @@ export const gallery = [
   {
     "id": "4",
     "url": "https://i.ibb.co/0fKmZ1h/RKB-4208.jpg",
-    "title": "Graduation"
+    "title": "Graduation "
   }
 ];
 
