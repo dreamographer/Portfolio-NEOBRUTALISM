@@ -350,7 +350,7 @@ export const experience = [
     "company": "ELT Global",
     "position": "Front end engineer",
     "period": "Aug 2024 - Present",
-    "description": "Developing frontend for the cutting edge edtech platform from ELT global."
+    "description": "Developing frontend for the cutting edge edutech platform from ELT global."
   }
 ];
 
