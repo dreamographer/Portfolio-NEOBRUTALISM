@@ -337,7 +337,7 @@ export const experience = [
   {
     "company": "Finanshels",
     "position": "Full Stack Developer",
-    "period": "Aug 2024 - Present",
+    "period": "Aug 2024 - Nov 2024",
     "description": "• Developed and maintained internal tools for Finanshels to enhance operational efficiency and client management • Contributed to the development of a financial management SaaS tailored for businesses in the UAE market • Implemented features such as automated CT registration Document Collection, centralized document management, and Central Mail System • Collaborated with cross-functional teams to ensure seamless integration and user-friendly interfaces"
   },
   {
@@ -349,7 +349,7 @@ export const experience = [
   {
     "company": "ELT Global",
     "position": "Front end engineer",
-    "period": "Aug 2024 - Present",
+    "period": "Dec 2024 - Present",
     "description": "Developing frontend for the cutting edge edutech platform from ELT global."
   }
 ];
