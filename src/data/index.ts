@@ -349,8 +349,14 @@ export const experience = [
   {
     "company": "ELT Global",
     "position": "Front end engineer",
-    "period": "Dec 2024 - Present",
+    "period": "Dec 2024 - Aug 2024",
     "description": "Developing frontend for the cutting edge edutech platform from ELT global."
+  },
+  {
+    "company": "ELT Global",
+    "position": "Senior Frontend Engineer",
+    "period": "Aug 2024 -  Present",
+    "description": "Focusing on building robust frontend systems, ensuring code quality, and guiding the team with modern frameworks and best practices."
   }
 ];
 
